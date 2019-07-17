@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Phone>
+	<Brand id="0" name="华为">
+		<Type name="华为P10"/>
+		<Type name="华为P20"/>
+		<Type name="华为P30"/>
+	</Brand>
+	<Brand id="1" name="苹果">
+		<Type name="iPhone8"/>
+		<Type name="iPhoneX"/>
+		<Type name="iPhoneXR"/>
+	</Brand>
+	<Brand id="2" name="三星">
+		<Type name="Note7"/>
+	</Brand>
+</Phone>
