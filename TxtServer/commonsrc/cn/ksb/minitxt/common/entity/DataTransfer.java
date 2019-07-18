@@ -5,8 +5,7 @@ import java.io.Serializable;
 /***
  * 数据传输类
  */
-public class DataTransfer<T extends Serializable> implements
-		java.io.Serializable {
+public class DataTransfer<T extends Serializable> implements Serializable {
 
 	/***
 	 * 识别ID

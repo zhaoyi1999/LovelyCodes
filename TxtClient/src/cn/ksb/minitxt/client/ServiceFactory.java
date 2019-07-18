@@ -1,4 +1,4 @@
-package cn.ksb.minitxt.server;
+package cn.ksb.minitxt.client;
 
 import java.io.File;
 import java.io.Serializable;
@@ -20,7 +20,7 @@ import org.dom4j.io.SAXReader;
  */
 public class ServiceFactory {
 	private static final String PATH = Init
-			.getProperty("server.config.service");// 配置文件的位置
+			.getProperty("client.config.service");// 配置文件的位置
 	private static Document document;
 	private static Map<String, String> services = new HashMap<>();
 	// 初始化，在类加载的时候之执行一次

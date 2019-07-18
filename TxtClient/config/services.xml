@@ -2,5 +2,7 @@
 
 <services>
 	<service key="start">cn.ksb.minitxt.services.StartService</service>
+	<service key="login">cn.ksb.minitxt.services.LoginService</service>
+	<service key="register">cn.ksb.minitxt.services.RegisterService</service>
 	<!-- 继续添加其他客户端功能 -->
 </services>
