@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <services>
 	<service key="start">cn.ksb.minitxt.services.StartService</service>
 	<service key="login">cn.ksb.minitxt.services.LoginService</service>
 	<service key="register">cn.ksb.minitxt.services.RegisterService</service>
-	<!-- 继续添加其他客户端功能 -->
+	<service key="getClasses">cn.ksb.minitxt.services.GetClassesService</service>
+	<service key="getNovels">cn.ksb.minitxt.services.GetNovelsByClassService</service>
+	<service key="upload">cn.ksb.minitxt.services.UploadService</service>
+	<service key="download">cn.ksb.minitxt.services.DownloadService</service>
+	<service key="getPreview">cn.ksb.minitxt.services.GetPreviewService</service>
+	<!-- 缁х画娣诲姞鍏朵粬瀹㈡埛绔姛鑳� -->
 </services>

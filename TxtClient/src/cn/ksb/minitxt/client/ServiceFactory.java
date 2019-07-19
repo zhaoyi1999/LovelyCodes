@@ -33,8 +33,8 @@ public class ServiceFactory {
 			// 获取XML根节点
 			Element rootEle = document.getRootElement();
 			// 获取所有<service>迭代器
-			@SuppressWarnings("rawtypes")
-			Iterator serviceEle = rootEle.elementIterator();
+			@SuppressWarnings("unchecked")
+			Iterator<Element> serviceEle = rootEle.elementIterator();
 			while (serviceEle.hasNext()) {
 				// 迭代出所有的<service>
 				Element service = (Element) serviceEle.next();

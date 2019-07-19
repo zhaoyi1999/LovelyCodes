@@ -15,44 +15,46 @@ import cn.ksb.minitxt.common.constants.UserConstants;
 import cn.ksb.minitxt.common.entity.DataTransfer;
 import cn.ksb.minitxt.common.entity.User;
 
-/***
- * 客户端的登录服务
- * 
- * @author Administrator
- * 
- */
-public class LoginService extends BaseServiceImpl<Serializable> {
-	
-	private String OUTPUT_TEXT_USERNAMEE = "请输入登录名：";
-	private String OUTPUT_TEXT_PASSWORD = "请输入密码：";
-	private String OUTPUT_TEXT_SUCCESS = "登录成功！";
-	private String OUTPUT_TEXT_FAILED = "用户名或密码错误，请重新输入！";
+public class RegisterService extends BaseServiceImpl<Serializable> {
+
+	private String OUTPUT_TEXT_USERNAME = "请输入登录名:";
+	private String OUTPUT_TEXT_PASSWORD = "请输入密码:";
+	private String OUTPUT_TEXT_PASSWORD2 = "请再次输入密码:";
+	private String OUTPUT_TEXT_USEREXIST = "用户名已存在，请重新注册！";
+	private String OUTPUT_TEXT_PASSWORDNOTEQUAL = "两次密码不一样！";
+	private String OUTPUT_USER_SAVESUCESS = "用户注册成功，请登录！";
+	private String OUTPUT_USER_SAVEFAIL = "用户注册失败，请重新注册！";
 
 	@Override
 	public Service<? extends Serializable> execute() {
 		Scanner scanner = new Scanner(System.in);
+
 		while (true) {
-			System.out.println(OUTPUT_TEXT_USERNAMEE);
+			System.out.println(OUTPUT_TEXT_USERNAME);
 			String username = scanner.next().trim();
 			System.out.println(OUTPUT_TEXT_PASSWORD);
 			String password = scanner.next().trim();
+			System.out.println(OUTPUT_TEXT_PASSWORD2);
+			String repwd = scanner.next().trim();
 
 			if (username.length() == 0 || password.length() == 0) {
 				System.out.println(OUTPUT_TEXT_INVALIDINPUT);
 				continue;
 			}
+			if (!password.equals(repwd)) {
+				System.out.println(OUTPUT_TEXT_PASSWORDNOTEQUAL);
+				continue;
+			}
+
 			User user = new User();
 			user.setUsername(username);
 			user.setPassword(password);
 
-			// 发送请求
 			DataTransfer<User> dto = new DataTransfer<>();
 			dto.setData(user);
-			dto.setKey(Constants.COMMAN_LOGIN);
+			dto.setKey(Constants.COMMAN_REGISTER);
 
-			// 约束客户端
 			DefaultCommunicatorImpl<User, ?> comm = new DefaultCommunicatorImpl<>();
-			// 服务端的响应
 			DataTransfer<?> response = null;
 
 			try {
@@ -79,18 +81,18 @@ public class LoginService extends BaseServiceImpl<Serializable> {
 			}
 
 			if (UserConstants.SUCCESS == response.getResult()) {
-				System.out.println(OUTPUT_TEXT_SUCCESS);
-				return ServiceFactory.getService(Constants.COMMAN_GETCLASSES);
-			} else if (UserConstants.PASSWORD_INVALID == response.getResult()
-					|| UserConstants.USERNAME_NOT_EXSITS == response
-							.getResult()) {
-				System.out.println(OUTPUT_TEXT_FAILED);
+				System.out.println(OUTPUT_USER_SAVESUCESS);
+				return ServiceFactory.getService(Constants.COMMAN_LOGIN);
+			} else if (UserConstants.USERNAME_IS_EXSITS == response.getResult()) {
+				System.out.println(OUTPUT_TEXT_USEREXIST);
 				continue;
 			} else {
-				System.out.println(OUTPUT_TEXT_SERVERERROR);
+				System.out.println(OUTPUT_USER_SAVEFAIL);
 				continue;
 			}
+
 		}
+
 	}
 
 }

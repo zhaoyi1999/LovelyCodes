@@ -11,6 +11,13 @@ import cn.ksb.minitxt.common.entity.DataTransfer;
 
 /***
  * 约束客户端的实现类
+ * 
+ * @author Administrator
+ * 
+ * @param <T>
+ *            发送到服务器端的请求数据类型
+ * @param <S>
+ *            服务器端推送回来的响应的数据类型
  */
 public class DefaultCommunicatorImpl<T extends Serializable, S extends Serializable>
 		implements Communicator<T, S> {

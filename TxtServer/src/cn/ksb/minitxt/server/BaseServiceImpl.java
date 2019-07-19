@@ -15,7 +15,7 @@ import java.net.Socket;
  */
 public abstract class BaseServiceImpl<T extends Serializable> implements
 		Service<T> {
-
+	
 	private Socket socket;
 	private ObjectInputStream in;
 	private ObjectOutputStream out;
@@ -61,9 +61,8 @@ public abstract class BaseServiceImpl<T extends Serializable> implements
 		socket.close();
 	}
 
-	
-	//封装
-	
+	// 封装
+
 	public Socket getSocket() {
 		return socket;
 	}

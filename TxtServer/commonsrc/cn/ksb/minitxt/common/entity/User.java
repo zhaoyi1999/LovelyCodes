@@ -1,5 +1,10 @@
 package cn.ksb.minitxt.common.entity;
 
+/***
+ * 用户类
+ * @author Administrator
+ *
+ */
 public class User implements java.io.Serializable {
 
 	/**

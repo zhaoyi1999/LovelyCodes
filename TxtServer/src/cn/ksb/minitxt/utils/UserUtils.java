@@ -104,12 +104,12 @@ public class UserUtils {
 		if (exists(user.getUsername())) {
 			return UserConstants.USERNAME_IS_EXSITS;
 		}
-			Element rootEle = document.getRootElement();
-			Element newUser = rootEle.addElement("user");
-			Element username = newUser.addElement("username");
-			username.setText(user.getUsername());
-			Element password = newUser.addElement("password");
-			password.setText(user.getPassword());
+		Element rootEle = document.getRootElement();
+		Element newUser = rootEle.addElement("user");
+		Element username = newUser.addElement("username");
+		username.setText(user.getUsername());
+		Element password = newUser.addElement("password");
+		password.setText(user.getPassword());
 		try {
 			users.put(user.getUsername(), user);
 			saveXML(PATH);
@@ -127,7 +127,6 @@ public class UserUtils {
 	public static void saveXML(String xmlPath) {
 		// 转换器
 		OutputFormat format = OutputFormat.createPrettyPrint();
-		format.setEncoding("GBK");
 		XMLWriter writer = null;
 		try {
 			writer = new XMLWriter(new OutputStreamWriter(new FileOutputStream(

@@ -11,7 +11,6 @@ import cn.ksb.minitxt.common.constants.Constants;
 public class StartService extends BaseServiceImpl<Serializable> {
 
 	private String OUTPUT_SIGN_LINE = "-------------------------------------\n";
-	private String OUTPUT_TEXT_INVALIDINPUT = "你的输入无效，请重新输入！";
 	private String OUTPUT_TEXT_SELECT = "请选择： ";
 	private String OUTPUT_TEXT_TITLE = "欢迎使用 看书吧 在线TXT小说阅读器\n";
 	private String OUTPUT_TEXT_LOGIN = "1.登录\n";
